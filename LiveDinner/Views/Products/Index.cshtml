@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LiveDinner.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-active table-bordered table-condensed table-hover" style="background-color:coral">
+    <tr style="background-color:seagreen; text-decoration-color:darkcyan">
+        
+
+        <th>
+            Product Name
+        </th>
+        <th>
+            Product Picture
+        </th>
+        <th>
+            Purchase price
+        </th>
+        <th>
+            Sale_Price
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Name)
+        </td>
+        <td>
+            <img style="height:100px; width:150px" src="@Url.Content(item.Product_Picture)"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Purchase_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Sale_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Product_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Product_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Product_Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,46 @@
+﻿@Model LiveDinner.Models.Classproducts
+@{
+    ViewBag.Title = "Purchased";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            @foreach (var item in Model.cat)
+            {
+                <a href="@Url.Action("Purchased","Purchased", new {id=item.Category_Id})">@item.Category_Name</a>
+            }
+        </div>
+        <div class="col-sm-9">
+            @foreach (var item in Model.pro)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-6 col-xl-6">
+                    <div class="gallery-single fix">
+                        <img src="@Url.Content(item.Product_Picture)" style="height: 150px; width:300px" class="img-fluid" alt="Image">
+
+                        <div class="why-text">
+
+                            <p>Sed id magna vitae eros sagittis euismod.</p>
+                            <h5> Rs: @item.Product_Purchase_price</h5>
+
+                        </div>
+                        <h4>@item.Product_Name</h4>
+                        <a href="@Url.Action("AddtoCard","Purchased", new { id=item.Product_Id})">
+                            <h4 style="float:right;" class="btn btn-outline-secondary col-4">Add To Stock</h4>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

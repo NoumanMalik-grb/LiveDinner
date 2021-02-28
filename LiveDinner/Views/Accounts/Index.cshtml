@@ -1,0 +1,73 @@
+﻿@model IEnumerable<LiveDinner.Models.Account>
+@using LiveDinner.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Phone_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+
+    if (Session["Admin"]!=null)
+    {
+        Account account =(Account)Session["Admin"];
+        if (account.Account_Id==item.Account_Id)
+        {
+          <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Phone_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account_Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Account_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Account_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Account_Id })
+        </td>
+    </tr>
+        }
+    }
+}
+
+</table>

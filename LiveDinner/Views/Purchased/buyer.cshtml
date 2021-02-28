@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "buyer";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<h2>Cutomer</h2>
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Seller Detail</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<center>
+    @using (Html.BeginForm("buyno","Purchased", FormMethod.Post))
+    {
+        <form>
+            <div class="form-group">
+                <input name="Order_Name" class="form-control col-5" placeholder="enter the name" required/>
+            </div>
+            <div class="form-group">
+                <input name="Order_Address" class="form-control col-5" placeholder="enter the address" required />
+            </div>
+            <div class="form-group">
+                <input name="Order_Email" class="form-control col-5" placeholder="enter the email" required/>
+            </div>
+            <div class="form-group">
+                <input name="Order_Phone_Number" class="form-control col-5" placeholder="enter the phone" required/>
+            </div>
+            <input type="submit" name="name" value="Submit" class="btn-outline-primary" />
+        </form>
+    }
+</center>
+<script type="text/javascript">
+    window.onload = function () {
+        window.scrollBy(0,200);
+    }
+</script>
+

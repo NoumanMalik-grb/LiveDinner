@@ -1,0 +1,45 @@
+﻿@model LiveDinner.Models.Account
+
+@{
+    ViewBag.Title = "Create";
+
+}
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Special Menu</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br />
+<br />
+@using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+{
+    <center>
+        <div class="#">
+            <div class="form-group">
+                <input type="text" name="Account_Name" class="form-control col-md-4" placeholder="Enter The Name" required />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Account_Address" class="form-control col-md-4" placeholder="Enter The Address" required />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Account_Phone_Number" class="form-control col-md-4" placeholder="Enter The Cell Number" required />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Account_Email" class="form-control col-md-4" placeholder="Enter The Email" required />
+            </div>
+            <div class="form-group">
+                <input type="password" name="Account_Password" class="form-control col-md-4" placeholder="Enter The Password" required />
+            </div>
+            <input type="submit" value="SignUp" class="btn btn-danger"/>
+        </div>
+    </center>
+
+
+}
+
